@@ -1,6 +1,10 @@
 # brasil-deputy-speech-scrapy
-Scraper for crawling Brasil Camara dos Deputados (Chamber of Deputies) speeches
+Scraper for crawling Brasil Camara dos Deputados (Chamber of Deputies) speeches.
 
+
+For more information https://dadosabertos.camara.leg.br/swagger/api.html#api
+
+This scraper crawls for deputies speeches from `1989-01-01` to `2021-04-05` by default
 
 # Requirements
 
@@ -24,3 +28,11 @@ Run the following command once inside the virtualenv
 Simply run the following command
 
 1. ```deactivate```
+
+# Running the scraper
+
+Run the following command
+
+```
+make crawl-speeches
+```

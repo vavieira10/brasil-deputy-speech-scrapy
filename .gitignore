@@ -1,1 +1,5 @@
 scraper_virtualenv
+*.log
+*.jsonl
+responses/*
+.DS_*
