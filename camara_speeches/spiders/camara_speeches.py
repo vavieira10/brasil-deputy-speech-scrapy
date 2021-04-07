@@ -11,7 +11,7 @@ class CamaraSpeechesSpider(scrapy.Spider):
         yield scrapy.Request(
             url=parser.generate_search_url_with_query(
                 static.DEPUTIES_BASE_URL,
-                static.get_base_query(init_date="2018-01-01")
+                static.get_base_query(init_date="2021-01-01")
             ),
             callback=self._first_request
         )

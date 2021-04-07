@@ -44,7 +44,7 @@ DEFAULT_REQUEST_HEADERS = {
 
 FEED_URI = "./outputs/output.jsonl"
 FEED_FORMAT = 'jsonlines'
-FEED_EXPORT_ENCODING: 'UTF-8'
+FEED_EXPORT_ENCODING = 'utf-8'
 FEED_OVERWRITE = 'True'
 
 # Enable or disable spider middlewares
