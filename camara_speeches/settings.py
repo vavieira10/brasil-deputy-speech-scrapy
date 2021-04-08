@@ -42,8 +42,8 @@ DEFAULT_REQUEST_HEADERS = {
 }
 
 
-FEED_URI = "./outputs/output.jsonl"
-FEED_FORMAT = 'jsonlines'
+FEED_URI = "./outputs/camara_speeches.pickle"
+FEED_FORMAT = 'pickle'
 FEED_EXPORT_ENCODING = 'utf-8'
 FEED_OVERWRITE = 'True'
 
@@ -92,5 +92,5 @@ FEED_OVERWRITE = 'True'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-LOGSTATS_INTERVAL = 5
-LOG_FILE='./outputs/scrapy.log'
+# LOGSTATS_INTERVAL = 5
+# LOG_FILE='./outputs/scrapy.log'

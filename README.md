@@ -4,7 +4,7 @@ Scraper for crawling Brasil Camara dos Deputados (Chamber of Deputies) speeches.
 
 For more information https://dadosabertos.camara.leg.br/swagger/api.html#api
 
-This scraper crawls for deputies speeches from `1989-01-01` to `2021-04-05` by default
+This scraper crawls for deputies speeches from `1985-03-15` to `2021-04-05` by default
 
 # Requirements
 
@@ -31,8 +31,27 @@ Simply run the following command
 
 # Running the scraper
 
-Run the following command
+The scraper was splitted in two steps:
+
+1. Fetching all deputies from start date to end date;
+2. Given the deputies and its legislatures, capture the speeches.
+
+## Run the following command for **crawling only the deputies data**
+
+```
+make crawl-deputies
+```
+
+## Run the following command for **crawling only the speeches data, but it requires the deputies data first**
 
 ```
 make crawl-speeches
 ```
+
+## Run the following command for **running both steps**
+
+```
+make crawl-all
+```
+
+Since the deputies data were already captured, you may simply run the `make crawl-speeches` directly

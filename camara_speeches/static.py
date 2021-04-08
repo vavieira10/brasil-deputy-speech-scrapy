@@ -3,8 +3,8 @@ SPEECHES_BASE_URL = "https://dadosabertos.camara.leg.br/api/v2/deputados/{id}/di
 
 
 def get_base_query(
-        init_date="1989-01-01",
-        end_date="2021-04-05",
+        init_date="1985-03-15",
+        end_date="2021-04-07",
         order_by="idLegislatura",
         itens="1000"
     ):
