@@ -1,0 +1,7 @@
+scraper_virtualenv
+outputs/*
+*.log
+*.jsonl
+*.pickle
+responses/*
+.DS_*
