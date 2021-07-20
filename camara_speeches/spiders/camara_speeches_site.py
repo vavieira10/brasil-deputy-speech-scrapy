@@ -6,8 +6,7 @@ import asyncio
 class CamaraSiteSpeechesSpider(scrapy.Spider):
     name = 'camara_site_speeches'
     custom_settings = {
-        "FEED_URI": f"./outputs/camara_speeches.json",
-        "FEED_FORMAT": 'json'
+        "FEED_URI": "./outputs/discursos_camara.pickle"
     }
 
     def start_requests(self):

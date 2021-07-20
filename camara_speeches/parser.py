@@ -132,8 +132,8 @@ def parse_pub(tr):
     pub_title = tr.xpath("./td[8]/a/text()").get()
 
     return {
-        "urlPublicacao": href if href != "#" else None,
-        "tituloPublicacao": unescape(pub_title).strip(" \r\t\n") if pub_title is not None else None
+        "url": href if href != "#" else None,
+        "titulo": unescape(pub_title).strip(" \r\t\n") if pub_title is not None else None
     }
 
 

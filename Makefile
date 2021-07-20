@@ -11,7 +11,7 @@ crawl-deputies: clear-deputies
 crawl-speeches: clear-speeches
 	scrapy crawl camara_speeches
 
-crawl-site-speeches: clear-speeches
+crawl-site-speeches:
 	scrapy crawl camara_site_speeches -a year=$(year)
 
 crawl-all: crawl-deputies crawl-speeches
