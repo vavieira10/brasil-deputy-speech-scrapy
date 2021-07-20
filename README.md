@@ -50,6 +50,34 @@ The deputies data will be saved as a `json` file named `./camara_deputies.json`
 make crawl-speeches
 ```
 
+## Run the following command for **crawling only the speeches data from the website**
+**This variation was implemented because the Camara API hasn't all the speeches when consulting it.**
+The data was scraped from the site https://www2.camara.leg.br/atividade-legislativa/discursos-e-notas-taquigraficas
+
+The arg `year` is not required, but if is not passed, the default year is **1985**
+
+If the year 1985 is passed, the date range will be from 1985-03-15 to 1985-12-31, because 03-15 of that year was the first
+day of the Jose Sarney presidency mandat.
+
+**From 1985 to mid 2000, there are no transcripted speeches, only the PDF or IMAGE files with the speech.**
+
+### **When scraping each year indepedently, it will append every speech of a year to the ./outputs/discursos_camara.pickle file**
+
+```
+make crawl-site-speeches year=2003
+``` 
+
+### For scraping speeches for a date range, you can use the `crawl_speeches_from_date_ranges.sh` script.
+
+```
+./crawl_speeches_from_date_ranges.sh START_YEAR END_YEAR
+```
+
+For crawling data from 1985 to 2021, for example, simply run the following command:
+```
+./crawl_speeches_from_date_ranges.sh 1985 2021
+```
+
 ## Run the following command for **running both steps**
 
 The speeches will be saved as a `pickle` file named `./outputs/camara_speeches.pickle`
@@ -60,7 +88,7 @@ make crawl-all
 
 Since the deputies data were already captured, you may simply run the `make crawl-speeches` directly
 
-# Output example
+# Output example from API crawled speeches
 ```json
 {
   "dataHoraInicio": "2001-03-21T15:10",
@@ -91,5 +119,25 @@ Since the deputies data were already captured, you may simply run the `make craw
     { "siglaPartido": "PFL", "idLegislatura": "51" }
   ],
   "ufsDeputado": ["RJ"]
+}
+```
+
+# Output example from website crawled speeches
+```json
+{
+  "dataDiscurso": "01/07/2003",
+  "tituloSessao": "001.1.52.E",
+  "fase": "PROPOSIÇÕES",
+  "deputado": { "nome": "ALEX CANZIANI", "siglaPartido": "PTB", "uf": "PR" },
+  "horaDiscurso": "20h14",
+  "publicacao": {
+    "url": null,
+    "titulo": "DCD02/07/2003 PAG. 30329"
+  },
+  "sumario": "\r\n\t\t\t\t\tTranscurso do 7º aniversário de fundação da TV Tarubá, no Município de Londrina, Estado do Paraná. Anúncio de reunião do Ministro das Comunicações, Miro Teixeira, com representantes do PROCON para definição de ações contra o aumento de tarifas telefônicas autorizado pela ANATEL.\r\n\t\t\t\t",
+  "discurso": {
+    "url": "TextoHTML.asp?etapa=5\r\n\t\t\t\t\t\t\t&nuSessao=001.1.52.E\r\n\t\t\t\t\t\t\t&nuQuarto=188\r\n\t\t\t\t\t\t\t&nuOrador=3\r\n\t\t\t\t\t\t\t&nuInsercao=0\r\n\t\t\t\t\t\t\t&dtHorarioQuarto=20:14\r\n\t\t\t\t\t\t\t&sgFaseSessao=PR\r\n\t\t\t\t\t\t\t&Data=01/07/2003\r\n\t\t\t\t\t\t\t&txApelido=ALEX CANZIANI, PTB-PR\r\n\t\t\t\t\t\t\t&txFaseSessao=Proposições\r\n\t\t\t\t\t\t\t&txTipoSessao=Ordinária - CD\r\n\t\t\t\t\t\t\t&dtHoraQuarto=20:14\r\n\t\t\t\t\t\t\t&txEtapa=",
+    "transcricao": "O SR. ALEX CANZIANI (PTB-PR. Pela ordem. Sem revisão do orador.) - Sr. Presidente, abordarei rapidamente 2 assuntos. Primeiro cumprimento a TV Tarubá, do Município de Londrina, pelo transcurso dos seus 7 anos de existência. Cumprimento todos os diretores pelo belo trabalho que desenvolvem em prol não só de Londrina, mas de todo o norte do Paraná.Quero também dizer, Sr. Presidente, que, junto com os Deputados Givaldo Carimbão e Luiz Bittencourt, fomos ao Ministério das Comunicações para falar com o Ministro Miro Teixeira a respeito desses aumentos abusivos de tarifas telefônicas a que a população brasileira está sendo submetida.Não é possível que tenhamos aumentos dessa envergadura, fazendo com que o cidadão se sinta impotente em face do que fez a ANATEL. Vamos fazer na próxima quinta-feira, com a presença do Sr. Ministro e de representantes de todos os PROCONs do País, reunião para definir como ingressaremos com ações contra esse abuso. Em meu Município, Londrina, administrada pelo Partido dos Trabalhadores, temos uma companhia municipal, a SERCONTEL, e não entendemos por que esse mesmo aumento abusivo está sendo por ela adotado para atender à cidade. Ora, essa companhia, que é superavitária, teria todas as condições de não repassar esse aumento abusivo, até porque a espelho, a GVT, não está cobrando nenhum aumento de seus consumidores. Deixo aqui o apelo para revertermos isso. Essa reunião que faremos será de grande importância, para que a sociedade brasileira veja a participação da Câmara dos Deputados.Muito obrigado."
+  }
 }
 ```
